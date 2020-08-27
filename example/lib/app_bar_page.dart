@@ -8,22 +8,30 @@ class AppBarPage extends StatefulWidget {
 }
 
 class _AppBarPageState extends State<AppBarPage> {
+  //We are using a logger here
+  Logger logger = Logger();
+  //If the item is selected animate animate will be set to true.
   bool animate = false;
 
   @override
   Widget build(BuildContext context) {
     Widget _appBar() => SliverAppBar(
           pinned: true,
+
           title: Text(
-            animate ? '1 item selected' : 'Advanced exaple',
+            animate ? '1 item selected' : 'Advanced example',
             style: TextStyle(color: animate ? Colors.white : Colors.black),
           ),
+
           backgroundColor: Colors.white,
           leading: Center(
             child: IconButton(
               onPressed: () {
                 setState(() {
-                  if (animate) animate = false;
+                  if (animate) {
+                    animate = false;
+                    logger.log('Selection cancelled');
+                  }
                 });
               },
               icon: SimpleAnimatedIcon(
@@ -40,7 +48,7 @@ class _AppBarPageState extends State<AppBarPage> {
                 Icons.share_outlined,
                 color: Colors.white,
               ),
-              onSecondPressed: () {},
+              onSecondPressed: () => logger.log('Share!'),
             ),
             ScaleIconSwitch(
               animate: animate,
@@ -49,18 +57,20 @@ class _AppBarPageState extends State<AppBarPage> {
                 Icons.delete_outline_outlined,
                 color: Colors.white,
               ),
-              onFirstPressed: () {},
-              onSecondPressed: () {},
+              onFirstPressed: () => logger.logInfo('Info!'),
+              onSecondPressed: () => logger.log('Delete!'),
             ),
           ],
+          //Put the RippleAnimation in the flexibleSpace
           flexibleSpace: Container(
             child: RippleAnimation(
               animate: animate,
               duration: Duration(milliseconds: 260),
+              // Offset so it looks like it starts at the bottom
               offsetY: 90,
               offsetX: 40,
               rippleColor: Colors.deepPurpleAccent[400],
-              backgroundColor: Colors.white,
+              //If backgroundColor is not set it will be set transparent
               height: 56,
             ),
           ),
