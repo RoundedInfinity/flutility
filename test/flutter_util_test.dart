@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_utils/flutter_util.dart';
+import 'package:flutilitiy/flutter_util.dart';
 
 void main() {
   test('logger name', () {
