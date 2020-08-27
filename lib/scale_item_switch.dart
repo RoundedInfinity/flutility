@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 ///If [firstIcon] or [secondIcon] are not set the other icon will just disappear.
 ///Icons are in the disabled state if they don't have there VoidCallback set
 ///
-///__Example__: 
+///__Example__:
 ///```
 ///bool animate = false;
 ///

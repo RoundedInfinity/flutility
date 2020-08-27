@@ -1,6 +1,6 @@
 name: flutility
-description: A new Flutter package project.
-version: 0.0.1
+description: A collection of useful widgets and other stuff. All the widgets are documented. If you find any issues please report them at https://github.com/RoundedInfinity/flutility/issues. 
+version: 0.0.2
 repository: https://github.com/RoundedInfinity/flutility.git
 
 environment:

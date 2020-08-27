@@ -1,6 +1,10 @@
-# Flutter Util
+# Flutility
 
 A collection of useful widgets and other stuff. All the widgets are documented. See how it works in the [examples](##Examples)
+
+Material selection see [Advanced Example](#AdvancedExample)
+
+![hello](https://thumbs.gfycat.com/ImpressionableFearfulCusimanse-size_restricted.gif)
 
 ## This package contains
 
@@ -19,14 +23,14 @@ flutter_util: <Newest Version>
 
 ## Examples
 
-- [Logger](###Logger)
-- [ScaleItemSwitch](###ScaleItemSwitch)
-- [Example App](###App)
-- [Advanced Example App](###AdvancedExample)
+- [Logger](#Logger)
+- [ScaleItemSwitch](#ScaleItemSwitch)
+- [Example App](#App)
+- [Advanced Example App](#AdvancedExample)
 
 More examples will be added soon.
 
-### Logger
+## Logger
 
 Tired of reading all these grey boring logs? Try Logger!
 Just create a logger somewhere in your code. You can give it a name if you want.
@@ -41,9 +45,9 @@ And now you can use it.
 logger.log('Hello there');
 ```
 
-### ScaleItemSwitch
+## ScaleItemSwitch
 
-/A widget to switch between two icons with the simple material icon transition. [Like the third transition here](https://kstatic.googleusercontent.com/files/b1f75f6411f22085feac9d957c977d65afc67c4850878bd4f4268f350e3eb3c500f7926fd207ea2c4453222cc6ce76f1ba8dc998c7f63e1bee5c629948d40518).
+A widget to switch between two icons with the simple material icon transition. [Like the third transition here](https://kstatic.googleusercontent.com/files/b1f75f6411f22085feac9d957c977d65afc67c4850878bd4f4268f350e3eb3c500f7926fd207ea2c4453222cc6ce76f1ba8dc998c7f63e1bee5c629948d40518).
 
 The animation is controlled by the [animate] value. [firstIcon] and [secondIcon] are properties in a `IconButton` so they should be some sort of icon.
 
@@ -67,7 +71,7 @@ ScaleIconSwitch(
 )
 ```
 
-### App
+## App
 
 App that most of the features
 
@@ -181,7 +185,7 @@ class _HomePageState extends State<HomePage> {
 }
 ```
 
-### AdvancedExample
+## AdvancedExample
 
 An App that uses the [material design select effect](https://material.io/design/interaction/selection.html#item-selection)
 
@@ -198,7 +202,7 @@ class AppBarPage extends StatefulWidget {
 class _AppBarPageState extends State<AppBarPage> {
   //We are using a logger here
   Logger logger = Logger();
-  //If the item is selected animate animate will be set to true.
+  //If the item is selected animate will be set to true.
   bool animate = false;
 
   @override

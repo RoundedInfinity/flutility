@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-
 ///Use this for a cool ripple effect. [Like this](https://kstatic.googleusercontent.com/files/c91a5e469e9cf95ea723487f8992d66c5cd26619e3296da4c83d4aa19060e654c9c658f427e149c809afe7cd02eee31c6847628c5f43010adbc4ccb8f550202c)
 class RippleAnimation extends StatefulWidget {
   final bool animate;
@@ -16,7 +15,8 @@ class RippleAnimation extends StatefulWidget {
       this.offsetX,
       this.offsetY,
       this.rippleColor = Colors.blue,
-      this.backgroundColor = Colors.transparent, this.duration = const Duration(milliseconds: 200)})
+      this.backgroundColor = Colors.transparent,
+      this.duration = const Duration(milliseconds: 200)})
       : super(key: key);
   @override
   _RippleAnimationState createState() => _RippleAnimationState();
@@ -32,8 +32,7 @@ class _RippleAnimationState extends State<RippleAnimation>
   initState() {
     super.initState();
 
-    _controller =
-        AnimationController(vsync: this, duration: widget.duration);
+    _controller = AnimationController(vsync: this, duration: widget.duration);
     _animation = Tween(begin: 0.0, end: 1.0).animate(_controller);
   }
 

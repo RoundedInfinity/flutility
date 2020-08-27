@@ -9,7 +9,7 @@
 class Logger {
   ///The Logger [name] is displayed in front of every message.
   String name;
- 
+
   ///If this Logger should print colored logs. Defaults to `true`.
   final bool colored;
   Logger({
@@ -35,7 +35,7 @@ class Logger {
   }
 
   ///Rich logs also include runtime Types.
-  void logRich(var message,[String description]) {
+  void logRich(var message, [String description]) {
     print(_nameColor + '< ℹ $name - $description >' + '\x1B[0m ');
     print(_textColor + 'message: ${message.toString()}');
     print(_textColor + 'runtimeType: ${message.runtimeType.toString()}');
