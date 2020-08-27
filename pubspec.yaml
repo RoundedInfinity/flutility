@@ -1,7 +1,7 @@
-name: flutilitiy
+name: flutility
 description: A new Flutter package project.
 version: 0.0.1
-repository: https://github.com/RoundedInfinity/flutilitiy.git
+repository: https://github.com/RoundedInfinity/flutility.git
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

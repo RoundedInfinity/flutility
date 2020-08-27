@@ -57,7 +57,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0-nullsafety"
-  flutilitiy:
+  flutility:
     dependency: "direct dev"
     description:
       path: ".."

@@ -1,8 +1,8 @@
-library flutilitiy;
+library flutility;
 
 
-export 'package:flutilitiy/logger.dart';
-export 'package:flutilitiy/ripple_anamation.dart';
-export 'package:flutilitiy/scale_item_switch.dart';
-export 'package:flutilitiy/simple_animated_icon.dart';
+export 'package:flutility/logger.dart';
+export 'package:flutility/ripple_anamation.dart';
+export 'package:flutility/scale_item_switch.dart';
+export 'package:flutility/simple_animated_icon.dart';
 
