@@ -1,8 +1,8 @@
-library flutter_util;
+library flutter_utils;
 
 
-export 'package:flutter_util/logger.dart';
-export 'package:flutter_util/ripple_anamation.dart';
-export 'package:flutter_util/scale_item_switch.dart';
-export 'package:flutter_util/simple_animated_icon.dart';
+export 'package:flutter_utils/logger.dart';
+export 'package:flutter_utils/ripple_anamation.dart';
+export 'package:flutter_utils/scale_item_switch.dart';
+export 'package:flutter_utils/simple_animated_icon.dart';
 

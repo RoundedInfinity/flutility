@@ -1,8 +1,7 @@
-name: flutter_util
+name: flutter_utils
 description: A new Flutter package project.
 version: 0.0.1
-author: null
-homepage: null
+repository: https://github.com/RoundedInfinity/flutter_utils.git
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

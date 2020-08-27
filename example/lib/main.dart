@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_util/flutter_util.dart';
+import 'package:flutter_utils/flutter_util.dart';
 
 import 'app_bar_page.dart';
 

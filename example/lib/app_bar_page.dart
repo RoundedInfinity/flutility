@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_util/flutter_util.dart';
+import 'package:flutter_utils/flutter_util.dart';
 
 class AppBarPage extends StatefulWidget {
   @override
