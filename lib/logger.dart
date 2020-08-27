@@ -35,8 +35,8 @@ class Logger {
   }
 
   ///Rich logs also include runtime Types.
-  void logRich(var message) {
-    print(_nameColor + '< ℹ $name >' + '\x1B[0m ');
+  void logRich(var message,[String description]) {
+    print(_nameColor + '< ℹ $name - $description >' + '\x1B[0m ');
     print(_textColor + 'message: ${message.toString()}');
     print(_textColor + 'runtimeType: ${message.runtimeType.toString()}');
   }

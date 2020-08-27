@@ -1,7 +1,8 @@
 library flutter_util;
+
+
 export 'package:flutter_util/logger.dart';
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'package:flutter_util/ripple_anamation.dart';
+export 'package:flutter_util/scale_item_switch.dart';
+export 'package:flutter_util/simple_animated_icon.dart';
+

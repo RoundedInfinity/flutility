@@ -5,12 +5,16 @@ class SimpleAnimatedIcon extends StatefulWidget {
   final bool animate;
   final AnimatedIconData icon;
   final Duration duration;
+  final Color color;
+  final double size;
 
   const SimpleAnimatedIcon({
     Key key,
     @required this.animate,
     @required this.icon,
     this.duration = const Duration(milliseconds: 200),
+    this.color,
+    this.size,
   }) : super(key: key);
   @override
   _SimpleAnimatedIconState createState() => _SimpleAnimatedIconState();
@@ -48,6 +52,8 @@ class _SimpleAnimatedIconState extends State<SimpleAnimatedIcon>
     } else if (widget.animate) _controller.forward();
     return AnimatedIcon(
       icon: widget.icon,
+      color: widget.color ?? Theme.of(context).iconTheme.color,
+      size: widget.size ?? Theme.of(context).iconTheme.size,
       progress: _controller,
     );
   }
