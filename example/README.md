@@ -1,6 +1,6 @@
-# flutter_util_example
+# example
 
-Demonstrates how to use the flutter_util plugin.
+A new Flutter project.
 
 ## Getting Started
 
