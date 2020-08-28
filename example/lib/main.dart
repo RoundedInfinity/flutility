@@ -168,7 +168,10 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Text('Delayed item stagger'),
-            _itemStagger()
+            _itemStagger(),
+            DropdownButton(icon: Icon(Icons.more_vert_outlined),isExpanded: false,
+                items: [DropdownMenuItem(child: Text('Hello'))],
+                onChanged: (value) {})
           ],
         ),
       ),

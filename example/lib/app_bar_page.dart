@@ -18,9 +18,12 @@ class _AppBarPageState extends State<AppBarPage> {
     Widget _appBar() => SliverAppBar(
           pinned: true,
 
-          title: Text(
-            animate ? '1 item selected' : 'Advanced example',
-            style: TextStyle(color: animate ? Colors.white : Colors.black),
+          title: AnimatedDefaultTextStyle(
+            duration: Duration(milliseconds: 200),
+            child: Text(
+              animate ? '1 item selected' : 'Advanced example',
+            ),
+            style: Theme.of(context).textTheme.headline6.copyWith(color: animate ? Colors.white : Colors.black87),
           ),
 
           backgroundColor: Colors.white,
@@ -43,7 +46,10 @@ class _AppBarPageState extends State<AppBarPage> {
           ),
           actions: [
             DelayedValueStagger(
-              value: animate,scrollDirection: Axis.horizontal,shrinkWrap: true,duration: Duration(milliseconds: 90),
+              value: animate,
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              duration: Duration(milliseconds: 90),
               builder: (context, value) => [
                 ScaleIconSwitch(
                   animate: value,
