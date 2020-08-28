@@ -1,6 +1,6 @@
 # Flutility
 
-A collection of useful widgets and other stuff. All the widgets are documented. See how it works in the [examples](##Examples)
+A collection of useful widgets, material widgets that totally should be included in flutter and other stuff. See how it works in the [examples](##Examples)
 
 Material selection see [Advanced Example](#AdvancedExample)
 
@@ -10,6 +10,8 @@ Material selection see [Advanced Example](#AdvancedExample)
 
 - SimpleAnimatedIcon
 - ScaleItemSwitch
+- DelayValueBuilder
+- DelayValueStagger
 - Logger
 - RippleAnimation
 

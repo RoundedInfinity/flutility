@@ -42,24 +42,30 @@ class _AppBarPageState extends State<AppBarPage> {
             ),
           ),
           actions: [
-            ScaleIconSwitch(
-              animate: animate,
-              secondIcon: Icon(
-                Icons.share_outlined,
-                color: Colors.white,
-              ),
-              onSecondPressed: () => logger.log('Share!'),
-            ),
-            ScaleIconSwitch(
-              animate: animate,
-              firstIcon: Icon(Icons.info_outline_rounded, color: Colors.black),
-              secondIcon: Icon(
-                Icons.delete_outline_outlined,
-                color: Colors.white,
-              ),
-              onFirstPressed: () => logger.logInfo('Info!'),
-              onSecondPressed: () => logger.log('Delete!'),
-            ),
+            DelayedValueStagger(
+              value: animate,scrollDirection: Axis.horizontal,shrinkWrap: true,duration: Duration(milliseconds: 90),
+              builder: (context, value) => [
+                ScaleIconSwitch(
+                  animate: value,
+                  secondIcon: Icon(
+                    Icons.share_outlined,
+                    color: Colors.white,
+                  ),
+                  onSecondPressed: () => logger.log('Share!'),
+                ),
+                ScaleIconSwitch(
+                  animate: value,
+                  firstIcon:
+                      Icon(Icons.info_outline_rounded, color: Colors.black),
+                  secondIcon: Icon(
+                    Icons.delete_outline_outlined,
+                    color: Colors.white,
+                  ),
+                  onFirstPressed: () => logger.logInfo('Info!'),
+                  onSecondPressed: () => logger.log('Delete!'),
+                ),
+              ],
+            )
           ],
           //Put the RippleAnimation in the flexibleSpace
           flexibleSpace: Container(

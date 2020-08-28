@@ -58,15 +58,16 @@ class _HomePageState extends State<HomePage> {
         children: [
           ScaleIconSwitch(
             animate: animate,
-            firstIcon: Icon(Icons.share_outlined),
-            secondIcon: Icon(Icons.delete_outline),
+             duration: Duration(milliseconds: 1000),
+            firstIcon: Icon(Icons.share_outlined,size: 40),
+            secondIcon: Icon(Icons.delete_outline,size: 40,),
             // giving the icons a on pressed function so they are not in the disabled state.
             onFirstPressed: () {},
             onSecondPressed: () {},
           ),
           //Just lets the icon disappear
           ScaleIconSwitch(
-            animate: animate, duration: Duration(milliseconds: 500),
+            animate: animate,
             firstIcon: Icon(Icons.add_a_photo_outlined),
 
             // giving the icons a on pressed function so they are not in the disabled state.

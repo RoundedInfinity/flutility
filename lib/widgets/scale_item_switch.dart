@@ -62,7 +62,14 @@ class _ScaleIconSwitchState extends State<ScaleIconSwitch> {
       transitionBuilder: (Widget child, Animation<double> animation) {
         return ScaleTransition(
           scale: animation,
-          child: child,
+          child: FadeTransition(
+              child: child,
+              opacity: animation.drive(
+                Tween(
+                  begin: 0.0 ,
+                  end: 1.0,
+                ).chain(CurveTween(curve: Curves.easeInCubic)),
+              )),
         );
       },
       child: IconButton(
