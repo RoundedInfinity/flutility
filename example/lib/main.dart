@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutility/flutility.dart';
 
 import 'app_bar_page.dart';
+import 'emphasized_elevation_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -58,9 +59,12 @@ class _HomePageState extends State<HomePage> {
         children: [
           ScaleIconSwitch(
             animate: animate,
-             duration: Duration(milliseconds: 1000),
-            firstIcon: Icon(Icons.share_outlined,size: 40),
-            secondIcon: Icon(Icons.delete_outline,size: 40,),
+            duration: Duration(milliseconds: 1000),
+            firstIcon: Icon(Icons.share_outlined, size: 40),
+            secondIcon: Icon(
+              Icons.delete_outline,
+              size: 40,
+            ),
             // giving the icons a on pressed function so they are not in the disabled state.
             onFirstPressed: () {},
             onSecondPressed: () {},
@@ -144,6 +148,11 @@ class _HomePageState extends State<HomePage> {
               onPressed: () => Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => AppBarPage())),
               child: Text('Advanced example'),
+            ),
+            RaisedButton(
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => TransitionPage())),
+              child: Text('Transition example'),
             ),
             Text('Delayed builder'),
             Center(
