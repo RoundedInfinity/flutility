@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutility/flutter_util.dart';
+import 'package:flutility/flutility.dart';
 
 import 'app_bar_page.dart';
 
@@ -99,6 +99,19 @@ class _HomePageState extends State<HomePage> {
                   builder: (BuildContext context) => AppBarPage())),
               child: Text('Advanced example'),
             ),
+            Text('Delayed builder'),
+            Center(
+              child: DelayedBuilder(
+                builder: (context, value) => AnimatedContainer(
+                  duration: Duration(milliseconds: 200),
+                  color: value ? Colors.green : Colors.black,
+                  height: 40,
+                  width: 40,
+                ),
+                value: animate,
+                delay: Duration(milliseconds: 700),
+              ),
+            )
           ],
         ),
       ),

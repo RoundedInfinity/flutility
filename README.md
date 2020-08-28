@@ -21,6 +21,12 @@ Add the package to your `pubspec.yaml` file.
 flutter_util: <Newest Version>
 ```
 
+And then import it.
+
+```[dart]
+import 'package:flutility/flutility.dart';
+```
+
 ## Examples
 
 - [Logger](#Logger)
