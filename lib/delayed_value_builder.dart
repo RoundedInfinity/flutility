@@ -1,27 +1,27 @@
 import 'package:flutter/widgets.dart';
 
-typedef _DelayBuilder = Widget Function(BuildContext context, dynamic value);
+typedef DelayBuilder = Widget Function(BuildContext context, dynamic value);
 
-class DelayedBuilder extends StatefulWidget {
+class DelayedValueBuilder extends StatefulWidget {
   final value;
-  final _DelayBuilder builder;
+  final DelayBuilder builder;
   final Duration delay;
 
-  const DelayedBuilder(
+  const DelayedValueBuilder(
       {Key key,
       @required this.value,
       @required this.builder,
       this.delay = const Duration(milliseconds: 200)})
       : super(key: key);
   @override
-  _DelayedBuilderState createState() => _DelayedBuilderState();
+  _DelayedValueBuilderState createState() => _DelayedValueBuilderState();
 }
 
-class _DelayedBuilderState extends State<DelayedBuilder> {
+class _DelayedValueBuilderState extends State<DelayedValueBuilder> {
   ValueNotifier listenableValue = ValueNotifier(false);
 
   @override
-  void didUpdateWidget(DelayedBuilder oldWidget) {
+  void didUpdateWidget(DelayedValueBuilder oldWidget) {
     update();
     super.didUpdateWidget(oldWidget);
   }

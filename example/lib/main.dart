@@ -75,6 +75,51 @@ class _HomePageState extends State<HomePage> {
         ],
       );
 
+  Widget _itemStagger() => Container(
+        height: MediaQuery.of(context).size.height * 0.1,
+        child: DelayedValueStagger(
+          value: animate,
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          duration: Duration(milliseconds: 100),
+          builder: (context, value) => [
+            Container(
+              width: MediaQuery.of(context).size.width * 0.1,
+              child: ScaleIconSwitch(
+                animate: value,
+                firstIcon: Icon(Icons.share_outlined),
+                secondIcon: Icon(Icons.delete_outline),
+                // giving the icons a on pressed function so they are not in the disabled state.
+                onFirstPressed: () {},
+                onSecondPressed: () {},
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.1,
+              child: ScaleIconSwitch(
+                animate: value,
+                firstIcon: Icon(Icons.share_outlined),
+                secondIcon: Icon(Icons.delete_outline),
+                // giving the icons a on pressed function so they are not in the disabled state.
+                onFirstPressed: () {},
+                onSecondPressed: () {},
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.1,
+              child: ScaleIconSwitch(
+                animate: value,
+                firstIcon: Icon(Icons.share_outlined),
+                secondIcon: Icon(Icons.delete_outline),
+                // giving the icons a on pressed function so they are not in the disabled state.
+                onFirstPressed: () {},
+                onSecondPressed: () {},
+              ),
+            ),
+          ],
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,7 +146,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Text('Delayed builder'),
             Center(
-              child: DelayedBuilder(
+              child: DelayedValueBuilder(
                 builder: (context, value) => AnimatedContainer(
                   duration: Duration(milliseconds: 200),
                   color: value ? Colors.green : Colors.black,
@@ -111,7 +156,9 @@ class _HomePageState extends State<HomePage> {
                 value: animate,
                 delay: Duration(milliseconds: 700),
               ),
-            )
+            ),
+            Text('Delayed item stagger'),
+            _itemStagger()
           ],
         ),
       ),
