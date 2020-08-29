@@ -7,8 +7,27 @@ import 'delayed_value_builder.dart';
 typedef DelayListBuilder = List<Widget> Function(
     BuildContext context, dynamic value);
 
+///A `ListView` that works like the delayed builder but has multiple widgets which are updated one after one.
+///
+///__Example__:
+///```
+///DelayedValueStagger(
+///   value: animate,
+///   shrinkWrap: true,
+///   duration: Duration(milliseconds: 200),
+///   builder: (context, value) => [
+///     Text('$value'),
+///     Text('$value'),
+///     Text('$value'),
+///     Text('$value'),
+///  ],
+/// ),
+/// 
+///```
+
 class DelayedValueStagger extends StatefulWidget {
   final DelayListBuilder builder;
+  /// For multiple values you can pass a `List`.
   final value;
   final Duration duration;
 

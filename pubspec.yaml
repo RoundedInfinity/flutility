@@ -1,6 +1,6 @@
 name: flutility
 description: A collection of useful widgets and other stuff. All the widgets are documented. If you find any issues please report them at https://github.com/RoundedInfinity/flutility/issues. 
-version: 0.0.2
+version: 0.0.4
 repository: https://github.com/RoundedInfinity/flutility.git
 
 environment:

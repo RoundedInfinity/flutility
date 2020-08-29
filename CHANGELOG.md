@@ -8,3 +8,13 @@
 
 * fixed documentation
 * fixed foratting
+
+## [0.0.3] - 28.08.2020
+
+* added Delayed Value Builder
+* added Delayed Value Stagger
+
+## [0.0.4] - 29.08.2020
+
+* added documentation
+* updated readme

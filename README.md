@@ -15,8 +15,6 @@ See how to build a material selection effect in the [Advanced Example](#Advanced
 - [Logger](#Logger)
 - Ripple Animation
 
-
-
 Add the package to your `pubspec.yaml` file.
 
 ```yaml
@@ -45,7 +43,6 @@ setState(()) {
 animate = !animate;
 }}
 ```
-
 
 ### Scale Item Switch
 
@@ -79,6 +76,7 @@ SimpleAnimatedIcon(
         icon: AnimatedIcons.play_pause,
 );
 ```
+
 ### Delayed Value Builder
 
 This widget updates a `value` for his child after a `delay`. Useful if you want to delay values for Foo animations.
@@ -100,7 +98,7 @@ DelayedValueBuilder(
 
 ### Delayed Value Stagger
 
-A `ListView` that works like the delayed builder but has multiple widgets which are updated one after one. 
+A `ListView` that works like the delayed builder but has multiple widgets which are updated one after one.
 
 ```dart
 DelayedValueStagger(
@@ -116,8 +114,6 @@ DelayedValueStagger(
 ),
 ```
 
-
-
 ### Logger
 
 Tired of reading all these gray boring logs? Try Logger!
@@ -132,7 +128,6 @@ And now you can use it.
 ```dart
 logger.log('Hello there');
 ```
-
 
 ## Example App
 
@@ -252,9 +247,6 @@ class _HomePageState extends State<HomePage> {
 ```
 
 </details>
-
-
-
 
 ## Advanced Example
 
