@@ -4,7 +4,7 @@ A collection of useful widgets, material widgets that totally should be included
 
 Material selection see [Advanced Example](#AdvancedExample)
 
-![hello](https://thumbs.gfycat.com/ImpressionableFearfulCusimanse-size_restricted.gif)
+
 
 ## This package contains
 
@@ -20,7 +20,7 @@ Material selection see [Advanced Example](#AdvancedExample)
 Add the package to your `pubspec.yaml` file.
 
 ```[dart]
-flutter_util: <Newest Version>
+flutility: <Newest Version>
 ```
 
 And then import it.
@@ -29,16 +29,57 @@ And then import it.
 import 'package:flutility/flutility.dart';
 ```
 
-## Examples
+## How to use it
 
-- [Logger](#Logger)
-- [ScaleItemSwitch](#ScaleItemSwitch)
-- [Example App](#App)
-- [Advanced Example App](#AdvancedExample)
+### Bool controlled animation
 
-More examples will be added soon.
+Most of the animated widget in this package are controlled with a `bool`.
+This makes simple animation a lot easier because you don't need a animation controller anymore.
+Don't forget to call `setState` after changing the value.
 
-## Logger
+```[dart]
+bool animate = false;
+
+void animateSomething() {
+setState(()) {
+animate = !animate;
+}}
+```
+
+
+### ScaleItemSwitch
+
+A widget to switch between two icons with the simple material icon transition. [Like the third transition here](https://kstatic.googleusercontent.com/files/b1f75f6411f22085feac9d957c977d65afc67c4850878bd4f4268f350e3eb3c500f7926fd207ea2c4453222cc6ce76f1ba8dc998c7f63e1bee5c629948d40518).
+
+The animation is controlled by the [animate] value. [firstIcon] and [secondIcon] are properties in a `IconButton` so they should be some sort of icon.
+
+If [firstIcon] or [secondIcon] are not set the other icon will just disappear.
+Icons are in the disabled state if they don't have there VoidCallback set.
+
+```[dart]
+
+ScaleIconSwitch(
+  animate: animate,
+  firstIcon: Icon(Icons.delete_outline),
+  secondIcon: Icon(Icons.share_outlined),
+  onFirstPressed: switchIcon,
+  onSecondPressed: switchIcon,
+)
+```
+
+### Simple animated Icon
+
+Just use a `bool` to control an animated icon.
+And give it a `Duration` if you want.
+
+```[dart]
+
+SimpleAnimatedIcon(
+        animate: animate,
+        icon: AnimatedIcons.play_pause,
+);
+```
+### Logger
 
 Tired of reading all these grey boring logs? Try Logger!
 Just create a logger somewhere in your code. You can give it a name if you want.
@@ -53,35 +94,12 @@ And now you can use it.
 logger.log('Hello there');
 ```
 
-## ScaleItemSwitch
 
-A widget to switch between two icons with the simple material icon transition. [Like the third transition here](https://kstatic.googleusercontent.com/files/b1f75f6411f22085feac9d957c977d65afc67c4850878bd4f4268f350e3eb3c500f7926fd207ea2c4453222cc6ce76f1ba8dc998c7f63e1bee5c629948d40518).
+## Example App
 
-The animation is controlled by the [animate] value. [firstIcon] and [secondIcon] are properties in a `IconButton` so they should be some sort of icon.
+Example app that is using most of the features
 
-If [firstIcon] or [secondIcon] are not set the other icon will just disappear.
-Icons are in the disabled state if they don't have there VoidCallback set.
-
-```[dart]
-bool animate = false;
-
-void switchIcon() {
-setState(()) {
-animate = !animate;
-}}
-
-ScaleIconSwitch(
-  animate: animate,
-  firstIcon: Icon(Icons.delete_outline),
-  fsecondIcon: Icon(Icons.share_outlined),
-  onFirstPressed: switchIcon,
-  onSecondPressed: switchIcon,
-)
-```
-
-## App
-
-App that most of the features
+<details markdown='1'><summary>show/hide</summary>
 
 ```[dart]
 import 'package:flutter/material.dart';
@@ -191,13 +209,22 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
 ```
 
-## AdvancedExample
+</details>
+
+
+
+
+## Advanced Example
 
 An App that uses the [material design select effect](https://material.io/design/interaction/selection.html#item-selection)
 
+<details markdown='1'><summary>show/hide</summary>
+
 ```[dart]
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_util/flutter_util.dart';
@@ -303,3 +330,6 @@ class _AppBarPageState extends State<AppBarPage> {
   }
 }
 ```
+
+
+</details>
