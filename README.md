@@ -1,31 +1,31 @@
 # Flutility
 
-A collection of useful widgets, material widgets that totally should be included in flutter and other stuff. See how it works in the [examples](##Examples)
+A collection of useful widgets, material widgets that totally should be included in flutter and other stuff.
 
-Material selection see [Advanced Example](#AdvancedExample)
+See how it works in the [examples](##How to use it)
 
-
+See how to build a material selection effect in the [Advanced Example](#Advanced%20Example)
 
 ## This package contains
 
-- SimpleAnimatedIcon
-- ScaleItemSwitch
-- DelayValueBuilder
-- DelayValueStagger
-- Logger
-- RippleAnimation
+- [SimpleAnimatedIcon](#Simple%20animated%20icon)
+- [Scale Item Switch](#Scale%20Item%20Switch)
+- [Delayed Value Builder](#Delayed%20Value%20Builder)
+- Delayed Value Stagger
+- [Logger](#Logger)
+- Ripple Animation
 
-## Installation
+
 
 Add the package to your `pubspec.yaml` file.
 
-```[dart]
+```yaml
 flutility: <Newest Version>
 ```
 
 And then import it.
 
-```[dart]
+```dart
 import 'package:flutility/flutility.dart';
 ```
 
@@ -37,7 +37,7 @@ Most of the animated widget in this package are controlled with a `bool`.
 This makes simple animation a lot easier because you don't need a animation controller anymore.
 Don't forget to call `setState` after changing the value.
 
-```[dart]
+```dart
 bool animate = false;
 
 void animateSomething() {
@@ -47,7 +47,7 @@ animate = !animate;
 ```
 
 
-### ScaleItemSwitch
+### Scale Item Switch
 
 A widget to switch between two icons with the simple material icon transition. [Like the third transition here](https://kstatic.googleusercontent.com/files/b1f75f6411f22085feac9d957c977d65afc67c4850878bd4f4268f350e3eb3c500f7926fd207ea2c4453222cc6ce76f1ba8dc998c7f63e1bee5c629948d40518).
 
@@ -56,7 +56,7 @@ The animation is controlled by the [animate] value. [firstIcon] and [secondIcon]
 If [firstIcon] or [secondIcon] are not set the other icon will just disappear.
 Icons are in the disabled state if they don't have there VoidCallback set.
 
-```[dart]
+```dart
 
 ScaleIconSwitch(
   animate: animate,
@@ -72,36 +72,75 @@ ScaleIconSwitch(
 Just use a `bool` to control an animated icon.
 And give it a `Duration` if you want.
 
-```[dart]
+```dart
 
 SimpleAnimatedIcon(
         animate: animate,
         icon: AnimatedIcons.play_pause,
 );
 ```
+### Delayed Value Builder
+
+This widget updates a `value` for his child after a `delay`. Useful if you want to delay values for Foo animations.
+
+Give the `DelayedValueBuilder` a value. Then you can access the delayed value in the builder. When you call `setState` the `value` in the builder will be updated after the `delay`.
+
+```dart
+DelayedValueBuilder(
+  builder: (context, value) => AnimatedContainer(
+    duration: Duration(milliseconds: 200),
+    color: value ? Colors.green : Colors.black,
+    height: 40,
+    width: 40,
+  ),
+  value: animate,
+  delay: Duration(milliseconds: 700),
+),
+```
+
+### Delayed Value Stagger
+
+A `ListView` that works like the delayed builder but has multiple widgets which are updated one after one. 
+
+```dart
+DelayedValueStagger(
+  value: animate,
+  shrinkWrap: true,
+  duration: Duration(milliseconds: 200),
+  builder: (context, value) => [
+    Text('$value'),
+    Text('$value'),
+    Text('$value'),
+    Text('$value'),
+ ],
+),
+```
+
+
+
 ### Logger
 
-Tired of reading all these grey boring logs? Try Logger!
+Tired of reading all these gray boring logs? Try Logger!
 Just create a logger somewhere in your code. You can give it a name if you want.
 
-```[dart]
+```dart
 var logger = Logger(name: 'Logan the logger');
 ```
 
 And now you can use it.
 
-```[dart]
+```dart
 logger.log('Hello there');
 ```
 
 
 ## Example App
 
-Example app that is using most of the features
+Example App that is using most of the features
 
 <details markdown='1'><summary>show/hide</summary>
 
-```[dart]
+```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_util/flutter_util.dart';
 
@@ -223,7 +262,7 @@ An App that uses the [material design select effect](https://material.io/design/
 
 <details markdown='1'><summary>show/hide</summary>
 
-```[dart]
+```dart
 
 import 'package:flutter/material.dart';
 
@@ -330,6 +369,5 @@ class _AppBarPageState extends State<AppBarPage> {
   }
 }
 ```
-
 
 </details>

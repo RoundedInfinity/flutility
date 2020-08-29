@@ -85,42 +85,12 @@ class _HomePageState extends State<HomePage> {
         child: DelayedValueStagger(
           value: animate,
           shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
           duration: Duration(milliseconds: 100),
           builder: (context, value) => [
-            Container(
-              width: MediaQuery.of(context).size.width * 0.1,
-              child: ScaleIconSwitch(
-                animate: value,
-                firstIcon: Icon(Icons.share_outlined),
-                secondIcon: Icon(Icons.delete_outline),
-                // giving the icons a on pressed function so they are not in the disabled state.
-                onFirstPressed: () {},
-                onSecondPressed: () {},
-              ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width * 0.1,
-              child: ScaleIconSwitch(
-                animate: value,
-                firstIcon: Icon(Icons.share_outlined),
-                secondIcon: Icon(Icons.delete_outline),
-                // giving the icons a on pressed function so they are not in the disabled state.
-                onFirstPressed: () {},
-                onSecondPressed: () {},
-              ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width * 0.1,
-              child: ScaleIconSwitch(
-                animate: value,
-                firstIcon: Icon(Icons.share_outlined),
-                secondIcon: Icon(Icons.delete_outline),
-                // giving the icons a on pressed function so they are not in the disabled state.
-                onFirstPressed: () {},
-                onSecondPressed: () {},
-              ),
-            ),
+            Text('$value'),
+            Text('$value'),
+            Text('$value'),
+            Text('$value'),
           ],
         ),
       );
@@ -169,9 +139,16 @@ class _HomePageState extends State<HomePage> {
             ),
             Text('Delayed item stagger'),
             _itemStagger(),
-            DropdownButton(icon: Icon(Icons.more_vert_outlined),isExpanded: false,
-                items: [DropdownMenuItem(child: Text('Hello'))],
-                onChanged: (value) {})
+            DelayedValueBuilder(
+              builder: (context, value) => AnimatedContainer(
+                duration: Duration(milliseconds: 200),
+                color: value ? Colors.green : Colors.black,
+                height: 40,
+                width: 40,
+              ),
+              value: animate,
+              delay: Duration(milliseconds: 700),
+            ),
           ],
         ),
       ),
