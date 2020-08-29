@@ -22,11 +22,12 @@ typedef DelayListBuilder = List<Widget> Function(
 ///     Text('$value'),
 ///  ],
 /// ),
-/// 
+///
 ///```
 
 class DelayedValueStagger extends StatefulWidget {
   final DelayListBuilder builder;
+
   /// For multiple values you can pass a `List`.
   final value;
   final Duration duration;

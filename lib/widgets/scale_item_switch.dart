@@ -66,7 +66,7 @@ class _ScaleIconSwitchState extends State<ScaleIconSwitch> {
               child: child,
               opacity: animation.drive(
                 Tween(
-                  begin: 0.0 ,
+                  begin: 0.0,
                   end: 1.0,
                 ).chain(CurveTween(curve: Curves.easeInCubic)),
               )),

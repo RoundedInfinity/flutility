@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutility/flutility.dart';
 
+import 'package:flutility/util/util.dart';
+
 import 'app_bar_page.dart';
 import 'emphasized_elevation_page.dart';
 
@@ -30,7 +32,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool animate = false;
-
+  var util = Utility();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
   //Using the logger
   void useLogger() {
     Logger logger = Logger(name: 'Dieter the logger');
@@ -98,6 +101,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(title: Text('HomePage')),
       body: Center(
         child: Column(
@@ -139,16 +143,27 @@ class _HomePageState extends State<HomePage> {
             ),
             Text('Delayed item stagger'),
             _itemStagger(),
-            DelayedValueBuilder(
-              builder: (context, value) => AnimatedContainer(
-                duration: Duration(milliseconds: 200),
-                color: value ? Colors.green : Colors.black,
-                height: 40,
-                width: 40,
+            Builder(
+              builder: (context) => RaisedButton(
+                child: Text('utils'),
+                onPressed: () {
+                  util.noStackSnackbar('Hello there', context: context);
+
+                  util.simpleDialog(
+                    context,
+                    title: 'Hellooo',
+                    content: 'Is anyone there?',
+                    actions: [
+                      FlatButton(
+                        onPressed: () {},
+                        child: Text("I\'m different"),
+                      )
+                    ],
+                  );
+                  
+                },
               ),
-              value: animate,
-              delay: Duration(milliseconds: 700),
-            ),
+            )
           ],
         ),
       ),
