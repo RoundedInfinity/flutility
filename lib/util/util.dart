@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'logger.dart';
@@ -207,6 +206,94 @@ class Utility {
           actions: list,
         );
       },
+    );
+  }
+
+  void showSideSheet(BuildContext context) {
+    OverlayEntry overlayEntry;
+    var mq = MediaQuery.of(context);
+
+    overlayEntry = OverlayEntry(
+      builder: (BuildContext context) {
+        return SideSheet(
+          mq: mq,
+          hideSideSheet: () {
+            hideSideSheet(overlayEntry);
+            log.log('hide');
+          },
+        );
+      },
+    );
+    Overlay.of(context).insert(overlayEntry);
+  }
+
+  void hideSideSheet(OverlayEntry overlayEntry) {
+    overlayEntry.remove();
+  }
+}
+
+class SideSheet extends StatefulWidget {
+  final MediaQueryData mq;
+  final VoidCallback hideSideSheet;
+  const SideSheet({Key key, this.mq, this.hideSideSheet}) : super(key: key);
+  @override
+  _SideSheetState createState() => _SideSheetState();
+}
+
+class _SideSheetState extends State<SideSheet>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+  Animation<Offset> offset;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 160));
+    offset = Tween<Offset>(begin: Offset(1.0, 0.0), end: Offset.zero)
+        .animate(_controller);
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        SizedBox(
+          width: widget.mq.size.width,
+          height: widget.mq.size.height,
+          child: GestureDetector(
+            onTap: () async {
+              await _controller.reverse();
+
+              widget.hideSideSheet();
+            },
+            child: AnimatedContainer(
+              duration: Duration(milliseconds: 100),
+              color: _controller.isAnimating ? Colors.black.withOpacity(0.4) : Colors.transparent,
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.centerRight,
+          child: SlideTransition(
+            position: offset,
+            child: SizedBox(
+              width: widget.mq.size.width / 1.3,
+              height: widget.mq.size.height,
+              child: Container(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

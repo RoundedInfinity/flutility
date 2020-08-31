@@ -9,6 +9,7 @@ class UtilPage extends StatefulWidget {
 
 class _UtilPageState extends State<UtilPage> {
   var util = Utility();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +25,9 @@ class _UtilPageState extends State<UtilPage> {
                   RaisedButton(
                     child: Text('snackbar'),
                     onPressed: () {
-                      util.snackbar('Hello there', context: context,floating: true);
+                      util.showSideSheet(context);
+                      //util.snackbar('Hello there',
+                      //   context: context, floating: true);
                     },
                   ),
                   RaisedButton(
