@@ -1,7 +1,6 @@
+import 'package:example/util_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutility/flutility.dart';
-
-import 'package:flutility/util/util.dart';
 
 import 'app_bar_page.dart';
 import 'emphasized_elevation_page.dart';
@@ -32,12 +31,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool animate = false;
-  var util = Utility();
+
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   //Using the logger
   void useLogger() {
     Logger logger = Logger(name: 'Dieter the logger');
-    logger.log('Hello there!');
+    logger.log('Hello \n there');
 
     logger.logInfo('This is a info message');
 
@@ -143,27 +142,11 @@ class _HomePageState extends State<HomePage> {
             ),
             Text('Delayed item stagger'),
             _itemStagger(),
-            Builder(
-              builder: (context) => RaisedButton(
-                child: Text('utils'),
-                onPressed: () {
-                  util.noStackSnackbar('Hello there', context: context);
-
-                  util.simpleDialog(
-                    context,
-                    title: 'Hellooo',
-                    content: 'Is anyone there?',
-                    actions: [
-                      FlatButton(
-                        onPressed: () {},
-                        child: Text("I\'m different"),
-                      )
-                    ],
-                  );
-                  
-                },
-              ),
-            )
+            RaisedButton(
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => UtilPage())),
+              child: Text('Util example'),
+            ),
           ],
         ),
       ),

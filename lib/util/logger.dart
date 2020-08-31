@@ -24,19 +24,19 @@ class Logger {
 
   void log(var message) {
     print(
-      _nameColor + '[$name]' + '\x1B[0m ' + _textColor + message.toString(),
+      _nameColor + '[$name]' + '\x1B[0m ' + _textColor + _validate(message),
     );
   }
 
   void logInfo(var message) {
     print(
-      _infoColor + '[$name]' + '\x1B[0m ' + _textColor + message.toString(),
+      _infoColor + '[$name]' + '\x1B[0m ' + _textColor + _validate(message),
     );
   }
 
   ///Rich logs also include runtime Types.
   void logRich(var message, [String description]) {
-    print(_nameColor + '< ℹ $name - $description >' + '\x1B[0m ');
+    print(_nameColor + '< ℹ $name - ${_validate(description)} >' + '\x1B[0m ');
     print(_textColor + 'message: ${message.toString()}');
     print(_textColor + 'runtimeType: ${message.runtimeType.toString()}');
   }
@@ -44,9 +44,17 @@ class Logger {
   ///Prints an error message. If [exception] is given it will also throw an exception.
   void logError(var message, [var error, Exception exception]) {
     print(
-      _errorColor + '[⚠ $name]' + '\x1B[0m ' + _errorColor + message.toString(),
+      _errorColor + '[⚠ $name]' + '\x1B[0m ' + _errorColor + _validate(message),
     );
     if (error != null) print(_errorColor + error.toString());
     if (exception != null) throw exception;
+  }
+
+  String _validate(var message) {
+    if (message is String) {
+      return message.replaceAll('\n', '\\n');
+    } else {
+      return message.toString();
+    }
   }
 }
